@@ -27,7 +27,7 @@ bookmarksRouter
     }
     const { title, url, description, rating } = req.body;
 
-    if (!Number.isInteger(rating) || rating > 5 || rating > 0) {
+    if (!Number.isInteger(rating) || rating < 5 || rating > 0) {
       logger.error(`Invalid rating '${rating}' supplied`);
       return res.status(400).send(`'rating' must be a number between 0 and 5`);
     }
